@@ -7,8 +7,10 @@ database_cursor.execute("""CREATE TABLE coordinates
 		(x real, y real, z real)
 		""")
 
-for i in xrange(1000):
-	database_cursor.execute("INSERT INTO coordinates VALUES (1, 2, 3)")
+with open('data.csv', 'wb') as out_file:
+	for i in xrange(2160000):
+		database_cursor.execute("INSERT INTO coordinates VALUES (1, 2, 3)")
+		out_file.write('1, 2, 3\n')
 
 database.commit()
 
